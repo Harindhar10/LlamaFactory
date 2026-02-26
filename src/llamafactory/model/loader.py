@@ -177,7 +177,7 @@ def load_model(
             if model_args.train_from_scratch:
                 model = load_class.from_config(config, trust_remote_code=model_args.trust_remote_code)
             else:
-                init_kwargs['device_map'] = 'auto'
+                init_kwargs['device_map'] = 'cpu'
                 print("changed devie_map")
                 print("passing init_kwargs to from_pretrained. init_kwargs:", init_kwargs)
                 model = load_class.from_pretrained(**init_kwargs)
