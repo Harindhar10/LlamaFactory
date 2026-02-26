@@ -61,13 +61,11 @@ def _get_init_kwargs(model_args: "ModelArguments") -> dict[str, Any]:
     """
     skip_check_imports()
     model_args.model_name_or_path = try_download_model_from_other_hub(model_args)
-    print("adding device_map argument to _get_init_kwargs function")
     return {
         "trust_remote_code": model_args.trust_remote_code,
         "cache_dir": model_args.cache_dir,
         "revision": model_args.model_revision,
         "token": model_args.hf_hub_token,
-        "device_map": 'auto',
     }
 
 
